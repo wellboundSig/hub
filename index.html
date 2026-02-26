@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellbound Hub</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <script>
+    (function(){var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)})();
+  </script>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --bg-secondary: #fafafa;
+      --bg-toggle-icon: #ffffff;
+      --purple: #7c5cbf;
+      --purple-light: #f3f0f9;
+      --purple-hover: #6a4daa;
+      --purple-border: #e2d9f0;
+      --gray-50: #fafafa;
+      --gray-100: #f5f5f5;
+      --gray-200: #e5e5e5;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gray-700: #404040;
+      --gray-800: #262626;
+      --gray-900: #171717;
+      --logo-invert: invert(1);
+      --radius: 12px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+      --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --bg-card: #1a1a1a;
+      --bg-secondary: #1e1e1e;
+      --bg-toggle-icon: #2a2a2a;
+      --purple: #a386d4;
+      --purple-light: rgba(124, 92, 191, 0.12);
+      --purple-hover: #b49ae0;
+      --purple-border: rgba(124, 92, 191, 0.25);
+      --gray-50: #1e1e1e;
+      --gray-100: #232323;
+      --gray-200: #2e2e2e;
+      --gray-300: #404040;
+      --gray-400: #6b6b6b;
+      --gray-500: #8a8a8a;
+      --gray-600: #a3a3a3;
+      --gray-700: #c4c4c4;
+      --gray-800: #e0e0e0;
+      --gray-900: #f0f0f0;
+      --logo-invert: none;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.4), 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--gray-900);
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      transition: background 300ms ease, color 300ms ease;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+
+    /* Logo */
+    .logo-wrap {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .logo-wrap img {
+      height: 52px;
+      filter: var(--logo-invert);
+      opacity: 0.9;
+      transition: filter 300ms ease;
+    }
+
+    /* Primary action cards */
+    .primary-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 22px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: var(--gray-900);
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition), background 300ms ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      border-color: var(--purple-border);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .card:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--purple-light);
+      border-radius: 10px;
+      color: var(--purple);
+    }
+
+    .card-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .card-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--gray-500);
+      line-height: 1.4;
+    }
+
+    .card-arrow {
+      flex-shrink: 0;
+      color: var(--gray-300);
+      transition: color var(--transition), transform var(--transition);
+      margin-top: 2px;
+    }
+
+    .card:hover .card-arrow {
+      color: var(--purple);
+      transform: translateX(2px);
+    }
+
+    .card-arrow svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Secondary card (HCHB) */
+    .secondary-action {
+      margin-bottom: 32px;
+    }
+
+    .secondary-action .card {
+      background: var(--bg-secondary);
+    }
+
+    .secondary-action .card-icon {
+      background: var(--bg-toggle-icon);
+      border: 1px solid var(--gray-200);
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--gray-200);
+      margin-bottom: 32px;
+    }
+
+    /* Collapsible links guide */
+    .links-section {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .links-toggle {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 16px 20px;
+      background: var(--bg-secondary);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-600);
+      text-align: left;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .links-toggle:hover {
+      background: var(--purple-light);
+      color: var(--gray-800);
+    }
+
+    .links-toggle-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-toggle-icon);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      color: var(--gray-400);
+      transition: color var(--transition), border-color var(--transition);
+    }
+
+    .links-toggle:hover .links-toggle-icon {
+      color: var(--purple);
+      border-color: var(--purple-border);
+    }
+
+    .links-toggle-icon svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .links-toggle-label {
+      flex: 1;
+    }
+
+    .links-toggle-chevron {
+      flex-shrink: 0;
+      color: var(--gray-400);
+      transition: transform var(--transition), color var(--transition);
+    }
+
+    .links-toggle-chevron svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .links-section.open .links-toggle-chevron {
+      transform: rotate(180deg);
+    }
+
+    .links-toggle:hover .links-toggle-chevron {
+      color: var(--gray-600);
+    }
+
+    .links-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .links-section.open .links-body {
+      max-height: 1200px;
+    }
+
+    .links-inner {
+      padding: 4px 20px 20px;
+    }
+
+    .link-group {
+      margin-bottom: 16px;
+    }
+
+    .link-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .link-group-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gray-400);
+      padding: 8px 0 6px;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--gray-700);
+      font-size: 13px;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .link-item:hover {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .link-item-icon {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      color: var(--gray-400);
+      transition: color var(--transition);
+    }
+
+    .link-item:hover .link-item-icon {
+      color: var(--purple);
+    }
+
+    .link-item-text {
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .link-item-external {
+      flex-shrink: 0;
+      width: 12px;
+      height: 12px;
+      color: var(--gray-300);
+      opacity: 0;
+      transition: opacity var(--transition), color var(--transition);
+    }
+
+    .link-item:hover .link-item-external {
+      opacity: 1;
+      color: var(--purple);
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      cursor: pointer;
+      color: var(--gray-400);
+      transition: color var(--transition), border-color var(--transition), background 300ms ease, box-shadow var(--transition);
+      z-index: 100;
+    }
+
+    .theme-toggle:hover {
+      color: var(--purple);
+      border-color: var(--purple-border);
+      box-shadow: var(--shadow);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 300ms ease, opacity 200ms ease;
+    }
+
+    .theme-toggle .icon-sun,
+    .theme-toggle .icon-moon {
+      position: absolute;
+    }
+
+    .theme-toggle .icon-sun {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.7);
+    }
+
+    .theme-toggle .icon-moon {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+
+    [data-theme="dark"] .theme-toggle .icon-sun {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+
+    [data-theme="dark"] .theme-toggle .icon-moon {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .container {
+        padding: 32px 16px 48px;
+      }
+
+      .logo-wrap {
+        margin-bottom: 36px;
+      }
+
+      .logo-wrap img {
+        height: 40px;
+      }
+
+      .primary-actions {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .card {
+        padding: 18px 16px;
+      }
+
+      .card-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+      }
+
+      .card-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .card-title {
+        font-size: 14px;
+      }
+
+      .card-desc {
+        font-size: 12px;
+      }
+    }
+
+    @media (min-width: 641px) and (max-width: 1024px) {
+      .container {
+        padding: 40px 32px 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+  </button>
+
+  <div class="container">
+
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Wellbound">
+    </div>
+
+    <!-- Primary Forms -->
+    <div class="primary-actions">
+      <a class="card" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2BKJsHSvDUqUZ2840rDSfX8iIdkQxk9OoE8O8m86VV1UNENJT044RjhFRDc2M1JSQ0ZSOUhGMTZDMi4u" target="_blank" rel="noopener">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Infection Reporting</div>
+          <div class="card-desc">Submit infection report form</div>
+        </div>
+        <div class="card-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+
+      <a class="card" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2BKJsHSvDUqUZ2840rDSfX8iIdkQxk9OoE8O8m86VV1UNVBEOFFPN0xCMDVMWkZDWU43NkM0TFNDRS4u" target="_blank" rel="noopener">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Occurrence & ER/Hospitalization</div>
+          <div class="card-desc">Report occurrence or ER visit</div>
+        </div>
+        <div class="card-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- HCHB Login -->
+    <div class="secondary-action">
+      <a class="card" href="https://www.promisepoint.com/hchblogin" target="_blank" rel="noopener">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">HCHB Login</div>
+          <div class="card-desc">Homecare Homebase portal access</div>
+        </div>
+        <div class="card-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Expandable URL Guide -->
+    <div class="links-section" id="linksSection">
+      <button class="links-toggle" id="linksToggle" aria-expanded="false">
+        <div class="links-toggle-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m9.86-2.54a4.5 4.5 0 0 0-1.242-7.244l4.5-4.5a4.5 4.5 0 0 1 6.364 6.364l-1.757 1.757"/></svg>
+        </div>
+        <span class="links-toggle-label">Approved URLs & Quick Links</span>
+        <div class="links-toggle-chevron">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+        </div>
+      </button>
+      <div class="links-body">
+        <div class="links-inner" id="linksContainer"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
