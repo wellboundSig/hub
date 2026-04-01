@@ -20,20 +20,20 @@
       --bg-card: #ffffff;
       --bg-secondary: #fafafa;
       --bg-toggle-icon: #ffffff;
-      --purple: #7c5cbf;
-      --purple-light: #f3f0f9;
-      --purple-hover: #6a4daa;
-      --purple-border: #e2d9f0;
-      --gray-50: #fafafa;
-      --gray-100: #f5f5f5;
-      --gray-200: #e5e5e5;
-      --gray-300: #d4d4d4;
-      --gray-400: #a3a3a3;
-      --gray-500: #737373;
-      --gray-600: #525252;
-      --gray-700: #404040;
-      --gray-800: #262626;
-      --gray-900: #171717;
+      --accent: #65103B;
+      --accent-light: #f7eef2;
+      --accent-hover: #520d31;
+      --accent-border: #dfc8d2;
+      --gray-50: #f9f9f9;
+      --gray-100: #f3f3f3;
+      --gray-200: #e2e2e2;
+      --gray-300: #c9c9c9;
+      --gray-400: #8c8c8c;
+      --gray-500: #5e5e5e;
+      --gray-600: #444444;
+      --gray-700: #333333;
+      --gray-800: #1f1f1f;
+      --gray-900: #111111;
       --logo-invert: invert(1);
       --radius: 12px;
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
@@ -48,20 +48,20 @@
       --bg-card: #1a1a1a;
       --bg-secondary: #1e1e1e;
       --bg-toggle-icon: #2a2a2a;
-      --purple: #a386d4;
-      --purple-light: rgba(124, 92, 191, 0.12);
-      --purple-hover: #b49ae0;
-      --purple-border: rgba(124, 92, 191, 0.25);
+      --accent: #65103B;
+      --accent-light: rgba(101, 16, 59, 0.15);
+      --accent-hover: #520d31;
+      --accent-border: rgba(101, 16, 59, 0.3);
       --gray-50: #1e1e1e;
-      --gray-100: #232323;
-      --gray-200: #2e2e2e;
-      --gray-300: #404040;
-      --gray-400: #6b6b6b;
-      --gray-500: #8a8a8a;
-      --gray-600: #a3a3a3;
-      --gray-700: #c4c4c4;
-      --gray-800: #e0e0e0;
-      --gray-900: #f0f0f0;
+      --gray-100: #242424;
+      --gray-200: #303030;
+      --gray-300: #444444;
+      --gray-400: #707070;
+      --gray-500: #999999;
+      --gray-600: #b0b0b0;
+      --gray-700: #d0d0d0;
+      --gray-800: #e8e8e8;
+      --gray-900: #f5f5f5;
       --logo-invert: none;
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
       --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
@@ -121,7 +121,7 @@
     }
 
     .card:hover {
-      border-color: var(--purple-border);
+      border-color: var(--accent-border);
       box-shadow: var(--shadow-md);
       transform: translateY(-1px);
     }
@@ -138,9 +138,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--purple-light);
+      background: var(--accent-light);
       border-radius: 10px;
-      color: var(--purple);
+      color: var(--accent);
     }
 
     .card-icon svg {
@@ -174,7 +174,7 @@
     }
 
     .card:hover .card-arrow {
-      color: var(--purple);
+      color: var(--accent);
       transform: translateX(2px);
     }
 
@@ -229,7 +229,7 @@
     }
 
     .links-toggle:hover {
-      background: var(--purple-light);
+      background: var(--accent-light);
       color: var(--gray-800);
     }
 
@@ -248,8 +248,8 @@
     }
 
     .links-toggle:hover .links-toggle-icon {
-      color: var(--purple);
-      border-color: var(--purple-border);
+      color: var(--accent);
+      border-color: var(--accent-border);
     }
 
     .links-toggle-icon svg {
@@ -324,8 +324,8 @@
     }
 
     .link-item:hover {
-      background: var(--purple-light);
-      color: var(--purple);
+      background: var(--accent-light);
+      color: var(--accent);
     }
 
     .link-item-icon {
@@ -337,7 +337,7 @@
     }
 
     .link-item:hover .link-item-icon {
-      color: var(--purple);
+      color: var(--accent);
     }
 
     .link-item-text {
@@ -359,7 +359,7 @@
 
     .link-item:hover .link-item-external {
       opacity: 1;
-      color: var(--purple);
+      color: var(--accent);
     }
 
     /* Theme toggle */
@@ -382,8 +382,8 @@
     }
 
     .theme-toggle:hover {
-      color: var(--purple);
-      border-color: var(--purple-border);
+      color: var(--accent);
+      border-color: var(--accent-border);
       box-shadow: var(--shadow);
     }
 
@@ -416,6 +416,72 @@
     [data-theme="dark"] .theme-toggle .icon-moon {
       opacity: 0;
       transform: rotate(90deg) scale(0.7);
+    }
+
+    /* Announcement Banner */
+    .announcement-banner {
+      background: #fff3cd;
+      border: 2px solid #ffc107;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      animation: banner-pulse 2s ease-in-out 3;
+    }
+
+    @keyframes banner-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+      50% { box-shadow: 0 0 0 6px rgba(255, 193, 7, 0.2); }
+    }
+
+    [data-theme="dark"] .announcement-banner {
+      background: rgba(255, 193, 7, 0.1);
+      border-color: rgba(255, 193, 7, 0.4);
+    }
+
+    .announcement-banner-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #856404;
+      margin-bottom: 12px;
+    }
+
+    [data-theme="dark"] .announcement-banner-title {
+      color: #ffc107;
+    }
+
+    .announcement-banner-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .announcement-banner p {
+      font-size: 14px;
+      color: #664d03;
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    [data-theme="dark"] .announcement-banner p {
+      color: #e0c97f;
+    }
+
+    .announcement-banner ol {
+      padding-left: 24px;
+      font-size: 14px;
+      color: #664d03;
+      line-height: 1.9;
+    }
+
+    [data-theme="dark"] .announcement-banner ol {
+      color: #e0c97f;
+    }
+
+    .announcement-banner li {
+      font-weight: 500;
     }
 
     /* Responsive */
@@ -479,6 +545,21 @@
 
     <div class="logo-wrap">
       <img src="logo.png" alt="Wellbound">
+    </div>
+
+    <!-- HCHB MFA Announcement -->
+    <div class="announcement-banner">
+      <div class="announcement-banner-title">
+        <svg class="announcement-banner-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+        ACTION REQUIRED: Set Up HCHB Multi-Factor Authentication
+      </div>
+      <p>You should now be able to access HCHB. All clinicians must follow HCHB instructions to set up MFA. If you are having trouble logging in, follow these steps:</p>
+      <ol>
+        <li>Connect to Wi-Fi and plug in your charger</li>
+        <li>Reboot your device</li>
+        <li>Restart Chrome</li>
+        <li>Try logging in again in PointCare</li>
+      </ol>
     </div>
 
     <!-- Primary Forms -->
@@ -546,6 +627,7 @@
 
   </div>
 
+  <script src="links.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
