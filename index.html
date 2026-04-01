@@ -484,6 +484,96 @@
       font-weight: 500;
     }
 
+    .authenticator-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(133, 100, 4, 0.25);
+    }
+
+    [data-theme="dark"] .authenticator-section {
+      border-top-color: rgba(255, 193, 7, 0.2);
+    }
+
+    .authenticator-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .authenticator-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .authenticator-heading {
+      font-size: 15px;
+      font-weight: 700;
+      color: #856404;
+      margin-bottom: 6px;
+    }
+
+    [data-theme="dark"] .authenticator-heading {
+      color: #ffc107;
+    }
+
+    .authenticator-text p {
+      font-size: 13px;
+      color: #664d03;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    [data-theme="dark"] .authenticator-text p {
+      color: #e0c97f;
+    }
+
+    .authenticator-step {
+      font-size: 13px;
+      color: #664d03;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    [data-theme="dark"] .authenticator-step {
+      color: #e0c97f;
+    }
+
+    .authenticator-step-num {
+      display: inline-block;
+      background: #856404;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: 4px;
+      margin-right: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    [data-theme="dark"] .authenticator-step-num {
+      background: rgba(255, 193, 7, 0.3);
+      color: #ffc107;
+    }
+
+    @media (max-width: 640px) {
+      .authenticator-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .authenticator-img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
     /* Responsive */
     @media (max-width: 640px) {
       .container {
@@ -560,6 +650,22 @@
         <li>Restart Chrome</li>
         <li>Try logging in again in PointCare</li>
       </ol>
+
+      <div class="authenticator-section">
+        <img src="microsoft-authenticator-750-1.png" alt="Microsoft Authenticator" class="authenticator-img">
+        <div class="authenticator-text">
+          <div class="authenticator-heading">Download Microsoft Authenticator</div>
+          <p>All clinicians must download the <strong>Microsoft Authenticator</strong> app. Homecare Homebase now requires MFA (Multi-Factor Authentication) for extra security. Setup is easy and takes about 3 minutes.</p>
+          <div class="authenticator-step">
+            <span class="authenticator-step-num">Step 1</span>
+            Go to the <strong>App Store</strong> (iPhone) or <strong>Play Store</strong> (Android) and search for <strong>"Microsoft Authenticator"</strong>. You must download this app.
+          </div>
+          <div class="authenticator-step">
+            <span class="authenticator-step-num">Step 2</span>
+            Follow the step-by-step instructions provided by HCHB when you log in to complete MFA setup.
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Primary Forms -->
