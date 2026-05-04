@@ -418,6 +418,66 @@
       transform: rotate(90deg) scale(0.7);
     }
 
+    /* Microsoft app cards */
+    .ms-apps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .ms-app-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+
+    .ms-app-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .ms-app-icon.excel {
+      background: rgba(33, 115, 70, 0.1);
+      color: #217346;
+    }
+
+    [data-theme="dark"] .ms-app-icon.excel {
+      background: rgba(33, 115, 70, 0.15);
+    }
+
+    .ms-app-icon.outlook {
+      background: rgba(0, 120, 212, 0.1);
+      color: #0078D4;
+    }
+
+    [data-theme="dark"] .ms-app-icon.outlook {
+      background: rgba(0, 120, 212, 0.15);
+    }
+
+    @media (max-width: 640px) {
+      .ms-apps {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .ms-app-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+      }
+
+      .ms-app-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
     /* Announcement Banner (subtle info style) */
     .announcement-banner {
       background: var(--bg-secondary);
@@ -645,6 +705,80 @@
       <img src="logo.png" alt="Wellbound">
     </div>
 
+    <!-- Primary Forms -->
+    <div class="primary-actions">
+      <a class="card" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2BKJsHSvDUqUZ2840rDSfX8iIdkQxk9OoE8O8m86VV1UNENJT044RjhFRDc2M1JSQ0ZSOUhGMTZDMi4u" target="_blank" rel="noopener">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Infection Reporting</div>
+          <div class="card-desc">Submit infection report form</div>
+        </div>
+        <div class="card-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+
+      <a class="card" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2BKJsHSvDUqUZ2840rDSfX8iIdkQxk9OoE8O8m86VV1UNVBEOFFPN0xCMDVMWkZDWU43NkM0TFNDRS4u" target="_blank" rel="noopener">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Occurrence & ER/Hospitalization</div>
+          <div class="card-desc">Report occurrence or ER visit</div>
+        </div>
+        <div class="card-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- Microsoft Apps -->
+    <div class="ms-apps">
+      <a class="card" href="https://excel.cloud.microsoft/" target="_blank" rel="noopener">
+        <div class="ms-app-icon excel">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.5 1h-11L0 3.5v17L3.5 24h17l3.5-3.5v-11L14.5 1ZM21 21H7V3h7v7h7v11ZM9.1 18l2.4-3.9L9.2 10.2h2.1l1.2 2.4c.1.2.2.5.3.7h0c.1-.3.2-.5.3-.7l1.3-2.4h1.9l-2.4 3.8L16.4 18h-2l-1.4-2.7c-.1-.1-.1-.3-.2-.4h0c0 .2-.1.3-.2.4L11.1 18H9.1Z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Excel Online</div>
+          <div class="card-desc">Open Microsoft Excel</div>
+        </div>
+        <div class="card-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+
+      <a class="card" href="https://outlook.office.com/mail/" target="_blank" rel="noopener">
+        <div class="ms-app-icon outlook">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 7.387v10.478c0 .23-.08.424-.238.576a.806.806 0 0 1-.588.234h-8.488v-8.07L16.2 11.73l1.545-1.166a.274.274 0 0 1 .164-.053h.022a.26.26 0 0 1 .164.053L24 7.387ZM16.2 11.73l-1.514-1.125V3.69c0-.226.082-.42.244-.578a.81.81 0 0 1 .584-.237h8.312L16.2 11.73ZM7.5 10.5c.828 0 1.5.895 1.5 2s-.672 2-1.5 2S6 13.605 6 12.5s.672-2 1.5-2ZM14 3.04v18.418L0 19.2V4.468L14 3.04Zm-2.75 9.732c0-1.727-.962-3.272-2.75-3.272S5.25 10.877 5.25 12.5c0 1.863 1.073 3.5 3.25 3.5s2.75-1.637 2.75-3.228Z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Outlook Mail</div>
+          <div class="card-desc">Open Microsoft Outlook</div>
+        </div>
+        <div class="card-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- HCHB Login -->
+    <div class="secondary-action">
+      <a class="card" href="https://www.promisepoint.com/hchblogin" target="_blank" rel="noopener">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">HCHB Login</div>
+          <div class="card-desc">Homecare Homebase portal access</div>
+        </div>
+        <div class="card-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+    </div>
+
     <!-- HCHB MFA Info -->
     <div class="announcement-banner">
       <div class="announcement-banner-title">
@@ -685,51 +819,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Primary Forms -->
-    <div class="primary-actions">
-      <a class="card" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2BKJsHSvDUqUZ2840rDSfX8iIdkQxk9OoE8O8m86VV1UNENJT044RjhFRDc2M1JSQ0ZSOUhGMTZDMi4u" target="_blank" rel="noopener">
-        <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
-        </div>
-        <div class="card-body">
-          <div class="card-title">Infection Reporting</div>
-          <div class="card-desc">Submit infection report form</div>
-        </div>
-        <div class="card-arrow">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-        </div>
-      </a>
-
-      <a class="card" href="https://forms.office.com/Pages/ResponsePage.aspx?id=2BKJsHSvDUqUZ2840rDSfX8iIdkQxk9OoE8O8m86VV1UNVBEOFFPN0xCMDVMWkZDWU43NkM0TFNDRS4u" target="_blank" rel="noopener">
-        <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
-        </div>
-        <div class="card-body">
-          <div class="card-title">Occurrence & ER/Hospitalization</div>
-          <div class="card-desc">Report occurrence or ER visit</div>
-        </div>
-        <div class="card-arrow">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-        </div>
-      </a>
-    </div>
-
-    <!-- HCHB Login -->
-    <div class="secondary-action">
-      <a class="card" href="https://www.promisepoint.com/hchblogin" target="_blank" rel="noopener">
-        <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"/></svg>
-        </div>
-        <div class="card-body">
-          <div class="card-title">HCHB Login</div>
-          <div class="card-desc">Homecare Homebase portal access</div>
-        </div>
-        <div class="card-arrow">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-        </div>
-      </a>
     </div>
 
     <div class="divider"></div>
