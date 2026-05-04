@@ -436,27 +436,10 @@
       border-radius: 10px;
     }
 
-    .ms-app-icon svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .ms-app-icon.excel {
-      background: rgba(33, 115, 70, 0.1);
-      color: #217346;
-    }
-
-    [data-theme="dark"] .ms-app-icon.excel {
-      background: rgba(33, 115, 70, 0.15);
-    }
-
-    .ms-app-icon.outlook {
-      background: rgba(0, 120, 212, 0.1);
-      color: #0078D4;
-    }
-
-    [data-theme="dark"] .ms-app-icon.outlook {
-      background: rgba(0, 120, 212, 0.15);
+    .ms-app-icon img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
     }
 
     @media (max-width: 640px) {
@@ -472,9 +455,9 @@
         border-radius: 8px;
       }
 
-      .ms-app-icon svg {
-        width: 20px;
-        height: 20px;
+      .ms-app-icon img {
+        width: 24px;
+        height: 24px;
       }
     }
 
@@ -737,8 +720,8 @@
     <!-- Microsoft Apps -->
     <div class="ms-apps">
       <a class="card" href="https://excel.cloud.microsoft/" target="_blank" rel="noopener">
-        <div class="ms-app-icon excel">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.5 1h-11L0 3.5v17L3.5 24h17l3.5-3.5v-11L14.5 1ZM21 21H7V3h7v7h7v11ZM9.1 18l2.4-3.9L9.2 10.2h2.1l1.2 2.4c.1.2.2.5.3.7h0c.1-.3.2-.5.3-.7l1.3-2.4h1.9l-2.4 3.8L16.4 18h-2l-1.4-2.7c-.1-.1-.1-.3-.2-.4h0c0 .2-.1.3-.2.4L11.1 18H9.1Z"/></svg>
+        <div class="ms-app-icon">
+          <img src="Microsoft_Office_Excel_(2025–present).svg" alt="Excel">
         </div>
         <div class="card-body">
           <div class="card-title">Excel Online</div>
@@ -750,8 +733,8 @@
       </a>
 
       <a class="card" href="https://outlook.office.com/mail/" target="_blank" rel="noopener">
-        <div class="ms-app-icon outlook">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 7.387v10.478c0 .23-.08.424-.238.576a.806.806 0 0 1-.588.234h-8.488v-8.07L16.2 11.73l1.545-1.166a.274.274 0 0 1 .164-.053h.022a.26.26 0 0 1 .164.053L24 7.387ZM16.2 11.73l-1.514-1.125V3.69c0-.226.082-.42.244-.578a.81.81 0 0 1 .584-.237h8.312L16.2 11.73ZM7.5 10.5c.828 0 1.5.895 1.5 2s-.672 2-1.5 2S6 13.605 6 12.5s.672-2 1.5-2ZM14 3.04v18.418L0 19.2V4.468L14 3.04Zm-2.75 9.732c0-1.727-.962-3.272-2.75-3.272S5.25 10.877 5.25 12.5c0 1.863 1.073 3.5 3.25 3.5s2.75-1.637 2.75-3.228Z"/></svg>
+        <div class="ms-app-icon">
+          <img src="Microsoft_Outlook_Icon_(2025–present).svg.png" alt="Outlook">
         </div>
         <div class="card-body">
           <div class="card-title">Outlook Mail</div>
