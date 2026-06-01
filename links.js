@@ -90,7 +90,7 @@ window.LINK_GROUPS = [
     links: [
       { url: "https://forms.office.com/Pages/ResponsePage.aspx?id=2BKJsHSvDUqUZ2840rDSfX8iIdkQxk9OoE8O8m86VV1UNENJT044RjhFRDc2M1JSQ0ZSOUhGMTZDMi4u", label: "Infection Reporting Form" },
       { url: "https://forms.office.com/Pages/ResponsePage.aspx?id=2BKJsHSvDUqUZ2840rDSfX8iIdkQxk9OoE8O8m86VV1UNVBEOFFPN0xCMDVMWkZDWU43NkM0TFNDRS4u", label: "Occurrence & ER/Hospitalization Form" },
-      { url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=2BKJsHSvDUqUZ2840rDSfUN9ds4-VRFKm2EevKB0MhRUNU5HN0tDVVZUT0VTMFZYRjE1S1VJT1RUMy4u", label: "Additional Form" }
+      { url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=2BKJsHSvDUqUZ2840rDSfUN9ds4-VRFKm2EevKB0MhRUNU5HN0tDVVZUT0VTMFZYRjE1S1VJT1RUMy4u", label: "New SPN Inquiry" }
     ]
   }
 ];
